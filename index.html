@@ -2,68 +2,277 @@
 <html lang="hi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Megha Loot</title>
-<script src="https://telegram.org/js/telegram-web-app.js"></script>
 
 <style>
 *{box-sizing:border-box}
+
 body{
- margin:0;
- background:#f5f6fa;
- font-family:Arial,sans-serif;
- color:#171717
+  margin:0;
+  background:#f5f6fa;
+  font-family:Arial,sans-serif;
+  color:#171717;
 }
+
 .app{
- max-width:480px;
- margin:auto;
- padding:15px 15px 90px
+  max-width:480px;
+  margin:auto;
+  padding:15px 15px 90px;
 }
+
 .top{
- display:flex;
- justify-content:space-between;
- align-items:center;
- margin-bottom:15px
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:15px;
 }
+
 .logo{
- font-size:23px;
- font-weight:800
+  font-size:23px;
+  font-weight:800;
 }
+
 .wallet{
- background:white;
- padding:10px 13px;
- border-radius:14px;
- border:1px solid #eee;
- font-weight:700
+  background:white;
+  padding:10px 13px;
+  border-radius:14px;
+  border:1px solid #eee;
+  font-weight:700;
 }
+
 .hero{
- background:linear-gradient(135deg,#111827,#374151);
- color:white;
- border-radius:22px;
- padding:21px
+  background:linear-gradient(135deg,#111827,#374151);
+  color:white;
+  border-radius:22px;
+  padding:21px;
 }
+
 .hero h1{
- margin:8px 0;
- font-size:25px
+  margin:8px 0;
+  font-size:25px;
 }
+
 .hero p{
- color:#ddd;
- font-size:13px;
- line-height:1.5
+  color:#ddd;
+  font-size:13px;
+  line-height:1.5;
 }
+
 .search{
- background:white;
- color:#777;
- padding:13px;
- border-radius:12px;
- margin-top:15px
+  background:white;
+  color:#777;
+  padding:13px;
+  border-radius:12px;
+  margin-top:15px;
 }
+
 .grid{
- display:grid;
- grid-template-columns:1fr 1fr;
- gap:12px;
- margin:15px 0
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin:15px 0;
 }
+
 .card,.offer{
- background:white;
- border:1px solid
+  background:white;
+  border:1px solid #e8e8e8;
+  border-radius:18px;
+  padding:14px;
+}
+
+.big{
+  font-size:22px;
+  font-weight:800;
+  margin:8px 0;
+}
+
+.muted{
+  color:#777;
+  font-size:12px;
+  line-height:1.4;
+}
+
+.btn{
+  width:100%;
+  border:0;
+  border-radius:12px;
+  padding:13px;
+  margin-top:11px;
+  background:#111827;
+  color:white;
+  font-weight:700;
+}
+
+.section{
+  margin-top:15px;
+}
+
+.offer{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-top:9px;
+}
+
+.badge{
+  background:#eef2ff;
+  padding:6px 9px;
+  border-radius:20px;
+  font-size:11px;
+}
+
+#message{
+  margin-top:13px;
+  padding:10px;
+  font-size:13px;
+  text-align:center;
+}
+
+nav{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  background:white;
+  border-top:1px solid #ddd;
+  display:flex;
+  justify-content:space-around;
+  padding:9px;
+}
+
+nav button{
+  border:0;
+  background:none;
+  font-size:12px;
+  padding:5px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+  <div class="top">
+    <div class="logo">🛍️ Megha Loot</div>
+    <div class="wallet">₹<span id="wallet">0</span></div>
+  </div>
+
+  <section class="hero">
+    <small>SHOPPING OFFERS</small>
+    <h1>Apna offer check karo</h1>
+    <p>Available offers aur shopping deals yahan check karein.</p>
+    <div class="search">🔎 Product ya offer search</div>
+  </section>
+
+  <div class="grid">
+
+    <div class="card">
+      <b>🎁 Normal Offer</b>
+      <div class="big">₹120–₹150</div>
+      <div class="muted">Available offer check karein.</div>
+      <button class="btn" id="checkOffer">Check Offer</button>
+    </div>
+
+    <div class="card">
+      <b>⚡ High Offer</b>
+      <div class="big">Up to ₹200</div>
+      <div class="muted">Eligibility ke according offer.</div>
+      <button class="btn" id="highOffer">Check</button>
+    </div>
+
+  </div>
+
+  <div class="section">
+    <b>🎁 Available Offers</b>
+
+    <div class="offer">
+      <div>
+        <b>₹120 OFF</b>
+        <div class="muted">Offer availability check</div>
+      </div>
+      <span class="badge">Check</span>
+    </div>
+
+    <div class="offer">
+      <div>
+        <b>₹150 OFF</b>
+        <div class="muted">Offer availability check</div>
+      </div>
+      <span class="badge">Check</span>
+    </div>
+
+    <div class="offer">
+      <div>
+        <b>Up to ₹200</b>
+        <div class="muted">High-offer eligibility</div>
+      </div>
+      <span class="badge">₹10</span>
+    </div>
+
+  </div>
+
+  <div class="card section">
+    <b>📦 Orders</b>
+    <div class="muted">Abhi koi order nahi hai.</div>
+    <button class="btn" id="orders">Order History</button>
+  </div>
+
+  <div id="message"></div>
+
+</div>
+
+<nav>
+  <button id="home">🏠<br>Home</button>
+  <button id="offer">🎁<br>Offer</button>
+  <button id="walletBtn">💰<br>Wallet</button>
+  <button id="ordersBtn">📦<br>Orders</button>
+  <button id="profile">👤<br>Profile</button>
+</nav>
+
+<script>
+const message = document.getElementById("message");
+
+function show(text){
+  message.textContent = text;
+}
+
+document.getElementById("checkOffer").onclick = function(){
+  show("Offer checking system backend connect hone ke baad real result yahan aayega.");
+};
+
+document.getElementById("highOffer").onclick = function(){
+  show("High-offer eligibility next phase mein connect hogi.");
+};
+
+document.getElementById("orders").onclick = function(){
+  show("Order history backend connect hone ke baad available hogi.");
+};
+
+document.getElementById("offer").onclick = function(){
+  document.getElementById("checkOffer").click();
+};
+
+document.getElementById("walletBtn").onclick = function(){
+  show("Wallet section next phase mein connect hoga.");
+};
+
+document.getElementById("ordersBtn").onclick = function(){
+  document.getElementById("orders").click();
+};
+
+document.getElementById("profile").onclick = function(){
+  show("Profile section next phase mein connect hoga.");
+};
+
+document.getElementById("home").onclick = function(){
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+};
+</script>
+
+</body>
+</html>
